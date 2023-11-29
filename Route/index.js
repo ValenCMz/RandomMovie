@@ -1,7 +1,7 @@
 // Configuraciones del bot
 const { Client } = require("discord.js");
 const client = new Client({ intents: [131071] });
-const {randomMovie} = require('../Commands/commands.js'); 
+const { randomMovie } = require('../Commands/commands.js');
 client.config = require('../config.json');
 
 
@@ -22,17 +22,20 @@ process.on('SIGINT', () => {
 });
 
 client.on('messageCreate', async (msg) => {
+    if (msg.author.bot) return;
+
     if (msg.content.startsWith("!")) {
-       switch (msg.content) {
-        case "!random":
-            randomMovie(msg, client);
-            break;
-        default:
-            msg.reply("El comando no es correcto");
-            break;
-       }
-    }else{
+        switch (msg.content) {
+            case "!random":
+                randomMovie(msg, client);
+                break;
+            default:
+                msg.reply("El comando no es correcto");
+                break;
+        }
+    } else {
         msg.reply("No es un comando valido");
+
     }
 });
 
