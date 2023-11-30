@@ -33,9 +33,6 @@ client.on('messageCreate', async (msg) => {
                 msg.reply("El comando no es correcto");
                 break;
         }
-    } else {
-        msg.reply("No es un comando valido");
-
     }
 });
 
