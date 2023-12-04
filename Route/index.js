@@ -6,13 +6,14 @@ client.config = require('../config.json');
 
 client.login(client.config.token).then(() => {
     console.log(`Cliente iniciado como ${client.user.username}! `);
-    client.user.setActivity('Estoy en desarrollo');
+    client.user.setActivity('!help');
+    const channel = client.channels.cache.get(client.config.channel);
+    if (channel) {
+        channel.send(`¡Bot iniciado!\n **!help** para ver los comandos disponibles.`).catch((err) => console.log(err));
+    } else {
+        console.log('No se pudo encontrar el canal especificado en la configuración.');
+    }
 }).catch((err) => console.log(err));
-
-
-client.on('ready', () => {
-    console.log(`Logged in as ${client.user.tag}!`);
-});
 
 process.on('SIGINT', () => {
     console.log('¡Bot desconectado manualmente!');
