@@ -43,7 +43,7 @@ client.on('messageCreate', async (msg) => {
 });
 
 async function showHelpRoute(msg) {
-    let rta = `Hola ${msg.author.username} \n \n **Lista de comandos:** \n \n **!rm** : Recomienda una pelicula random \n \n **!rmg** : Recomienda una pelicula random de un genero especifico \n \n **!rs** : Recomienda una serie random \n \n **!genres** : Muestra la lista de generos disponibles \n \n **!info** : Muestra informacion del bot \n \n **!help** : Muestra la lista de comandos disponibles`;
+    let rta = `Hola ${msg.author.username} \n \n **Comandos:** \n \n **!rm:** Te recomienda una pelicula random. \n \n **!rmg [genero]:** Te recomienda una pelicula random del genero que le pases. \n \n **!genres:** Te muestra la lista de generos. \n \n **!rs:** Te recomienda una serie random. \n \n **!rsg [genero]:** Te recomienda una serie random del genero que le pases. \n \n **!info:** Informacion del bot. \n \n **!help:** Te muestra los comandos disponibles.`;
     msg.reply(rta);
 }
 
@@ -64,7 +64,7 @@ async function randomSerieRoute(msg, client) {
 }
 
 async function showInforoute(msg) {
-    let rta = `Hola ${msg.author.username} \n \n **Informacion del bot:** \n \n **Creador:** Valentin Caminos Martinez \n \n **Version:** 1.0 \n \n **Fecha de creacion:** 24/10/2021`;
+    let rta = `Hola ${msg.author.username} \n \n **Informacion del bot:** Bot que te recomienda una pelicula random o una serie random.\n \n **Creador:** Valentin Caminos Martinez \n \n **Version:** 1.0 \n \n **Github:** https://github.com/ValenCMz`;
     msg.reply(rta);
 }
 
