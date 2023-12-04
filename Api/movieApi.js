@@ -7,9 +7,7 @@ import('node-fetch').then(nodeFetch => {
 
 const movieApi = {
   randomMovieApi: async function (msg, client) {
-    // Un numro random entre 1 y 500
     let nroPagina = Math.floor(Math.random() * 500) + 1;
-    // Array de urls para hacer el request
     let urls = [`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${nroPagina}&sort_by=popularity.desc`,
     `https://api.themoviedb.org/3/discover/movie?include_adult=true&include_video=false&language=en-US&page=${nroPagina}&sort_by=popularity.desc`,
     ];
@@ -20,7 +18,7 @@ const movieApi = {
       return json;
 
     } catch (error) {
-      msg.reply('Hubo un error al obtener los datos.');
+      msg.reply('There was an error getting the data.');
       return null;
     }
   }
@@ -34,7 +32,7 @@ const movieApi = {
       return json;
     }
     catch (error) {
-      msg.reply('Hubo un error al obtener los datos.');
+      msg.reply('There was an error getting the data.');
       return null;
     }
   }
@@ -45,10 +43,11 @@ const movieApi = {
     try {
       const url = `https://api.themoviedb.org/3/genre/movie/list?language=en`;
       let json = await getGeneric(url, client);
+      console.log(json);
       return json;
     }
     catch (error) {
-      msg.reply('Hubo un error al obtener los datos.');
+      msg.reply('There was an error getting the data.');
       return null;
     }
   }
@@ -64,7 +63,7 @@ const movieApi = {
       return json;
     }
     catch (error) {
-      msg.reply('Hubo un error al obtener los datos.');
+      msg.reply('There was an error getting the data.');
       return null;
     }
   },
@@ -78,8 +77,7 @@ const movieApi = {
         }
       }
     } catch (error) {
-      console.error(error);
-      msg.reply('Hubo un error al obtener la lista de géneros.');
+      msg.reply('There was an error getting the data.');
       return null;
     }
   },
@@ -91,7 +89,7 @@ const movieApi = {
       return json;
     }
     catch (error) {
-      msg.reply('Hubo un error al obtener los datos.');
+      msg.reply('There was an error getting the data.');
       return null;
     }
   }
